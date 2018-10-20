@@ -3,15 +3,12 @@ const { Text, View, StyleSheet, Button } = require('react-native');
 const { TextInput } = require('react-native-paper');
 const AuthorService = require('../services/AuthorService');
 
-type Props = {
-    title: string,
-}
-
 type State = {
-    title: string,
+    name: string,
+    username: string
 }
 
-class LoginScreen extends React.Component<Props, State> {
+class LoginScreen extends React.Component<State> {
 
     constructor(props) {
         super(props);
@@ -40,7 +37,7 @@ class LoginScreen extends React.Component<Props, State> {
                 <TextInput value={this.state.name} onChangeText={text => this.setState({ name: text })} style={styles.input} />
                 <Text style={styles.label}>Username</Text>
                 <TextInput value={this.state.username} onChangeText={text => this.setState({ username: text })} style={styles.input} />
-                <Button style={styles.button} title="Button" onPress={this.saveAuthor} ></Button>
+                <Button style={styles.button} title="Save" onPress={this.saveAuthor} ></Button>
             </View>
         )
     }
